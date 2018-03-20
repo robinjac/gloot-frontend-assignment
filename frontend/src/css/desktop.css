@@ -1,0 +1,6 @@
+.list {
+    width:300px;
+    transform: translateY(7%);
+    -ms-transform: translateY(7%);
+    -webkit-transform: translateY(7%);
+}
