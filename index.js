@@ -7,6 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(allowCorsMiddleware);
 
+// To serve the website (robin)
+app.use(express.static(__dirname + '\\frontend\\dist'));
+
 /* API */
 app.get('/players', getPlayers);
 app.get('/player/:id', getPlayer);
@@ -80,5 +83,6 @@ function putPlayer(req, res) {
 function allowCorsMiddleware(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTION"); // Added to make DELETE request work (robin)
   next();
 }
